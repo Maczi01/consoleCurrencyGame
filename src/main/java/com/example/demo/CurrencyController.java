@@ -25,23 +25,17 @@ public class CurrencyController {
     }
 
     public String getValueFromUser() {
-        double value;
-        boolean valid = false;
-        do {
-            System.out.println("Podaj wartosc");
-            try {
-                value = scanner.nextDouble();
-                valid = true;
-            } catch (InputMismatchException e) {
-            }
-        } while (!valid);
-        System.out.println("bravo!");
-        String nextLine = scanner.nextLine();
-//        double currency = getCurrency();
-        System.out.println();
-        return nextLine.toString();
+        String valueToCheck = scanner.nextLine();
+        isConvertableToDouble(valueToCheck);
+
+
+        return "";
     }
 
+
+    private boolean isConvertableToDouble(String valueToCheck) {
+        return false;
+    }
 //    public void game() {
 //        double currency = getCurrency();
 //        String valueFromUser = getValueFromUser();

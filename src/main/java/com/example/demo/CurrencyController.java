@@ -1,20 +1,18 @@
 package com.example.demo;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 @Controller
 public class CurrencyController {
 
 
-    private Scanner scanner = new Scanner(System.in);
-
     public CurrencyController() {
 //        System.out.println(getCurrency());
-        getValueFromUser();
+//        getValueFromUser();
     }
 
     public double getCurrency() {
@@ -24,18 +22,6 @@ public class CurrencyController {
         return currency.getConversionRates().getPLN();
     }
 
-    public String getValueFromUser() {
-        String valueToCheck = scanner.nextLine();
-        isConvertableToDouble(valueToCheck);
-
-
-        return "";
-    }
-
-
-    private boolean isConvertableToDouble(String valueToCheck) {
-        return false;
-    }
 //    public void game() {
 //        double currency = getCurrency();
 //        String valueFromUser = getValueFromUser();

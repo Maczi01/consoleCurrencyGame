@@ -16,8 +16,8 @@ public class CurrencyController {
 
     public CurrencyController() {
 //        System.out.println(getCurrency());
-//        getCurrencyAndValueFromUser();
-//        value = getCurrency();
+        value = getCurrency();
+        getCurrencyAndValueFromUser();
     }
 
     public double getCurrency() {
@@ -39,10 +39,10 @@ public class CurrencyController {
         return Double.parseDouble(valueToCheck);
     }
 
-    @EventListener(ApplicationReadyEvent.class)
+//    @EventListener(ApplicationReadyEvent.class)
     public void getCurrencyAndValueFromUser() {
-        double currency = value;
-        double valueFromUser = getValueFromUser();
+        double currency = getCurrency();
+        double valueFromUser = value;
         while (!compareValues(currency, valueFromUser)) {
             valueFromUser = getValueFromUser();
         }

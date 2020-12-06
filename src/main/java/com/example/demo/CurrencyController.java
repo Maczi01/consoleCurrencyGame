@@ -13,6 +13,11 @@ public class CurrencyController {
     private final String LINK_TO_API = "https://v6.exchangerate-api.com/v6/ab33143b55d3dc0b1f57ddd3/latest/eur";
 
     public CurrencyController() {
+        game();
+    }
+
+    public void game(){
+        System.out.println("Sprobuj odgadnac dzisiejszy kurs EUR w przeliczeniu na PLN");
         getCurrencyAndValueFromUser();
     }
 
@@ -20,14 +25,13 @@ public class CurrencyController {
         var restTemplate = new RestTemplate();
         Currency currency = restTemplate
                 .getForObject(LINK_TO_API, Currency.class);
-        Double pln = currency.getConversionRates().getPLN();
+        String pln = currency.getConversionRates().getPLN().toString().substring(0,4);
         System.out.println(pln);
-        return pln;
+        return Double.parseDouble(pln);
     }
 
     public double getValueFromUser() {
         String valueToCheck;
-            System.out.println("Sprobuj odgadnac dzisiejszy kurs EUR w przeliczeniu na PLN");
         do {
             System.out.println("Podaj wartosc");
             valueToCheck = scanner.nextLine();
@@ -42,6 +46,7 @@ public class CurrencyController {
             valueFromUser = getValueFromUser();
         }
         System.out.println("Wygrales!");
+        scanner.close();
     }
 
     private boolean compareValues(double currency, double valueFromUser) {
